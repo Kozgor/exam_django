@@ -4,6 +4,10 @@
 <div id="header">
         <div class="container">
         <div id="welcomeLine" class="row">
+          {% if user.is_authenticated %}
+                <button class="btn--forward" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@getbootstrap">Contact with realtor</button>
+            {% endif %}
             <div class="span6">Welcome!<strong> User</strong></div>
             <div class="span6">
             <div class="pull-right">
