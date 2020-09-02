@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic.base import View
+
+from .models import Goods
 
 def index(request):
     return render(request, 'pages/index.html')
@@ -35,3 +38,8 @@ def normalinfo(request):
 
 def faq(request):
     return render(request, 'pages/faq.html')
+
+class GoodsView(View):
+    def get(self, request):
+        goods_list = Goods.objects.all()
+        return render(request, "pages/index.html", {"goods_list":goods_list})
