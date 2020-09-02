@@ -4,7 +4,10 @@ from django.views.generic.base import View
 from .models import Goods
 
 def index(request):
-    return render(request, 'pages/index.html')
+    goods_list = {
+        "item":Goods.objects.all()
+    }
+    return render(request, 'pages/index.html', goods_list)
 
 def products(request):
     return render(request, 'pages/products.html')
